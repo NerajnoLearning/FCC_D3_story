@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Job Application Funnel Story</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Job Search Journey ~ 2021 && 2022 Combined</h1>
+            <div class="subtitle">From 767 Applications to 2 Offers: A Data-Driven Story</div>
+        </div>
+        
+        <div class="chart-container">
+            <svg width="975" height="600"></svg>
+        </div>
+        
+        <div id="narration">Starting job application journey...</div>
+        
+        <div class="story-section">
+            <h2>🎯 The Job Search Story ~ An Adaptation</h2>
+            <p>
+                My job searches tend to be marathons, not a sprint. I started with approximately <strong>767 applications</strong>, I experienced the typical funnel that many job seekers face in today's competitive market. The journey was filled with ups and downs, but the data tells a clear story of persistence and gradual progress.
+            </p>
+            <p>
+                The biggest drop-off happened early - from 767 applications to just 80 behavioral screenings, representing a <strong>89.6% rejection rate</strong> at the initial stage. This harsh reality is common in modern job hunting, where automated systems and high competition filter out most applications before human review.
+            </p>
+            <p>
+                As I progressed through each round, the numbers became smaller but more meaningful. Each interview represented hours of preparation, research, and emotional investment. The multiple rounds (up to 5 rounds for some companies) showcase how thorough modern hiring processes have become.
+            </p>
+            <p>
+                Despite the challenging numbers, the story has a happy ending: <strong>2 job offers</strong> from my 767 applications. This 0.26% conversion rate, while seemingly small, represents the culmination of months of effort, learning, and personal growth.
+            </p>
+            <p>So did I use this learning experience  to better understand data-based and visual story telling..... yes, absolutely!. <em>And yes, I used some amount of generative AI tools to assist me spinning up this page.</em></p>
+        </div>
+        
+        <div class="learning-section">
+            <h2>📊 D3.js Concepts Learned</h2>
+            
+            <div class="concept">
+                <h3>Data Binding and Selection</h3>
+                <p>
+                    The core of D3.js is its data binding mechanism. Using <code>d3.selectAll().data().enter()</code>, we bind our job funnel data to SVG elements. This creates a relationship between data points and DOM elements, allowing us to create one bar for each stage of the job process.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>Scales and Domains</h3>
+                <p>
+                    <code>d3.scaleLinear()</code> creates a linear scale that maps our data values (0 to 767) to pixel widths. The <code>.domain()</code> represents our data range while <code>.range()</code> represents the pixel space available. This ensures our bars are proportionally sized regardless of the actual numbers.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>SVG Group Elements and Transforms</h3>
+                <p>
+                    Each stage is wrapped in a <code>&lt;g&gt;</code> (group) element, positioned using <code>transform="translate(x, y)"</code>. This creates a coordinate system for each bar, making it easy to position labels, bars, and drop-off percentages relative to each stage.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>Transitions and Animation</h3>
+                <p>
+                    D3's <code>.transition()</code> method brings the data to life. By using <code>.delay()</code> and <code>.duration()</code>, we create a storytelling sequence where each bar appears progressively, making the funnel effect more dramatic and engaging.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>Dynamic Text Content</h3>
+                <p>
+                    The drop-off percentages are calculated dynamically using <code>((1 - current/previous) * 100).toFixed(1)</code>. This demonstrates how D3.js can perform calculations on-the-fly and display computed values, not just raw data.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>Conditional Styling and Classes</h3>
+                <p>
+                    The final "Offer" bar uses conditional class assignment <code>(d.stage === "Offer" ? "bar highlight" : "bar")</code> to apply different styling. This shows how D3.js can apply different visual treatments based on data properties.
+                </p>
+            </div>
+            
+            <div class="concept">
+                <h3>Coordinated Animation Timing</h3>
+                <p>
+                    Multiple elements (bars, text, drop-offs) are animated in sequence using carefully timed <code>setTimeout()</code> calls. This creates a cohesive narrative flow where each piece of information is revealed at the optimal moment for storytelling impact.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
