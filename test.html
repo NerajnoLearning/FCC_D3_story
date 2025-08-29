@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<html>
+  <head>
+    <title>Job Application Funnel Story</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        color: #333;
+      }
+      
+      .container {
+        max-width: 80vw;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+      
+      .header {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+        padding: 40px;
+        text-align: center;
+      }
+      
+      h1 {
+        margin: 0 0 15px 0;
+        font-size: 2.5em;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .subtitle {
+        font-size: 1.2em;
+        opacity: 0.9;
+        font-weight: 300;
+      }
+      
+      .chart-container {
+        width: 100%;
+        padding: 20px;
+        background: #f9fafb;
+        display: flex;
+        justify-content: center;
+      }
+      
+      svg {
+        overflow: visible;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .bar {
+        fill: #4f46e5;
+        rx: 8;
+        ry: 8;
+        transition: all 0.3s ease;
+      }
+      
+      .bar:hover {
+        fill: #6366f1;
+      }
+      
+      .label {
+        fill: #374151;
+        font-size: 14px;
+        font-weight: 600;
+        dominant-baseline: middle;
+      }
+      
+      .count {
+        fill: #fff;
+        font-size: 13px;
+        font-weight: bold;
+        dominant-baseline: middle;
+      }
+      
+      .dropoff {
+        fill: #dc2626;
+        font-size: 12px;
+        font-style: italic;
+        dominant-baseline: middle;
+        font-weight: 600;
+      }
+      
+      .highlight {
+        fill: #059669;
+      }
+      
+      #narration {
+        margin: 40px;
+        padding: 25px;
+        font-size: 18px;
+        text-align: center;
+        background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+        border-radius: 15px;
+        border-left: 5px solid #059669;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+      }
+      
+      .story-section {
+        padding: 40px;
+        background: white;
+      }
+      
+      .story-section h2 {
+        color: #4f46e5;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        border-bottom: 3px solid #e5e7eb;
+        padding-bottom: 10px;
+      }
+      
+      .story-section p {
+        line-height: 1.7;
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: #374151;
+      }
+      
+      .learning-section {
+        padding: 40px;
+        background: #f8fafc;
+      }
+      
+      .learning-section h2 {
+        color: #7c3aed;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        border-bottom: 3px solid #e5e7eb;
+        padding-bottom: 10px;
+      }
+      
+      .concept {
+        background: white;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid #7c3aed;
+      }
+      
+      .concept h3 {
+        color: #4f46e5;
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+      }
+      
+      .concept code {
+        background: #f1f5f9;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        color: #1e293b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>My Job Search Journey ~ 2021 && 2022 Combined</h1>
+        <div class="subtitle">From 767 Applications to 2 Offers: A Data-Driven Story</div>
+      </div>
+      
+      <div class="chart-container">
+        <svg width="975" height="600"></svg>
+      </div>
+      
+      <div id="narration">Starting job application journey...</div>
+      
+      <div class="story-section">
+        <h2>🎯 The Job Search Story ~ An Adaptation</h2>
+        <p>
+          My job searches tend to be marathons, not a sprint. I started with approximately <strong>767 applications</strong>, I experienced the typical funnel that many job seekers face in today's competitive market. The journey was filled with ups and downs, but the data tells a clear story of persistence and gradual progress.
+        </p>
+        <p>
+          The biggest drop-off happened early - from 767 applications to just 80 behavioral screenings, representing a <strong>89.6% rejection rate</strong> at the initial stage. This harsh reality is common in modern job hunting, where automated systems and high competition filter out most applications before human review.
+        </p>
+        <p>
+          As I progressed through each round, the numbers became smaller but more meaningful. Each interview represented hours of preparation, research, and emotional investment. The multiple rounds (up to 5 rounds for some companies) showcase how thorough modern hiring processes have become.
+        </p>
+        <p>
+          Despite the challenging numbers, the story has a happy ending: <strong>2 job offers</strong> from my 767 applications. This 0.26% conversion rate, while seemingly small, represents the culmination of months of effort, learning, and personal growth.
+        </p>
+      </div>
+      
+      <div class="learning-section">
+        <h2>📊 D3.js Concepts Learned</h2>
+        
+        <div class="concept">
+          <h3>Data Binding and Selection</h3>
+          <p>
+            The core of D3.js is its data binding mechanism. Using <code>d3.selectAll().data().enter()</code>, we bind our job funnel data to SVG elements. This creates a relationship between data points and DOM elements, allowing us to create one bar for each stage of the job process.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>Scales and Domains</h3>
+          <p>
+            <code>d3.scaleLinear()</code> creates a linear scale that maps our data values (0 to 767) to pixel widths. The <code>.domain()</code> represents our data range while <code>.range()</code> represents the pixel space available. This ensures our bars are proportionally sized regardless of the actual numbers.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>SVG Group Elements and Transforms</h3>
+          <p>
+            Each stage is wrapped in a <code>&lt;g&gt;</code> (group) element, positioned using <code>transform="translate(x, y)"</code>. This creates a coordinate system for each bar, making it easy to position labels, bars, and drop-off percentages relative to each stage.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>Transitions and Animation</h3>
+          <p>
+            D3's <code>.transition()</code> method brings the data to life. By using <code>.delay()</code> and <code>.duration()</code>, we create a storytelling sequence where each bar appears progressively, making the funnel effect more dramatic and engaging.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>Dynamic Text Content</h3>
+          <p>
+            The drop-off percentages are calculated dynamically using <code>((1 - current/previous) * 100).toFixed(1)</code>. This demonstrates how D3.js can perform calculations on-the-fly and display computed values, not just raw data.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>Conditional Styling and Classes</h3>
+          <p>
+            The final "Offer" bar uses conditional class assignment <code>(d.stage === "Offer" ? "bar highlight" : "bar")</code> to apply different styling. This shows how D3.js can apply different visual treatments based on data properties.
+          </p>
+        </div>
+        
+        <div class="concept">
+          <h3>Coordinated Animation Timing</h3>
+          <p>
+            Multiple elements (bars, text, drop-offs) are animated in sequence using carefully timed <code>setTimeout()</code> calls. This creates a cohesive narrative flow where each piece of information is revealed at the optimal moment for storytelling impact.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        { stage: "Applied", count: 767 },
+        { stage: "Behavioral Screening", count: 80 },
+        { stage: "Assignment / 1st Round", count: 45 },
+        { stage: "2nd Round", count: 13 },
+        { stage: "3rd Round", count: 8 },
+        { stage: "4th Round", count: 5 },
+        { stage: "Final Round", count: 3 },
+        { stage: "Offer", count: 2 },
+      ];
+
+      const svg = d3.select("svg");
+      const narration = d3.select("#narration");
+      const width = +svg.attr("width");
+      const barHeight = 40;
+      const barGap = 30;
+
+      // Scale for bar widths
+      const x = d3
+        .scaleLinear()
+        .domain([0, d3.max(data, (d) => d.count)])
+        .range([0, width - 250]);
+
+      // Groups for each stage
+      const groups = svg
+        .selectAll("g.stage")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class", "stage")
+        .attr(
+          "transform",
+          (d, i) => `translate(200, ${i * (barHeight + barGap) + 30})`
+        );
+
+      // Bars
+      groups
+        .append("rect")
+        .attr("class", (d) => (d.stage === "Offer" ? "bar highlight" : "bar"))
+        .attr("height", barHeight)
+        .attr("width", 0);
+
+      // Stage labels
+      groups
+        .append("text")
+        .attr("class", "label")
+        .attr("x", -10)
+        .attr("y", barHeight / 2)
+        .attr("text-anchor", "end")
+        .text((d) => d.stage);
+
+      // Count labels
+      groups
+        .append("text")
+        .attr("class", "count")
+        .attr("x", 10)
+        .attr("y", barHeight / 2)
+        .attr("opacity", 0)
+        .text((d) => d.count);
+
+      // Drop-off labels
+      groups
+        .append("text")
+        .attr("class", "dropoff")
+        .attr("x", (d) => x(d.count) + 20)
+        .attr("y", barHeight / 2)
+        .attr("opacity", 0)
+        .text((d, i) => {
+          if (i === 0) return "";
+          const prev = data[i - 1].count;
+          const drop = ((1 - d.count / prev) * 100).toFixed(1);
+          return `-${drop}%`;
+        });
+
+      // Narration messages
+      const messages = data.map((d, i) => {
+        if (i === 0) return `I applied to ${d.count} jobs across various companies and roles.`;
+        if (i === data.length - 1)
+          return `Success! I received ${d.count} job offers after this intensive process. 🎉`;
+        const prev = data[i - 1].count;
+        const drop = ((1 - d.count / prev) * 100).toFixed(1);
+        return `${d.count} candidates advanced to ${d.stage} (${drop}% were filtered out).`;
+      });
+
+      // Animate with narration
+      data.forEach((d, i) => {
+        // Animate bar
+        groups
+          .filter((g, j) => i === j)
+          .select("rect")
+          .transition()
+          .delay(i * 1800)
+          .duration(1000)
+          .ease(d3.easeBackOut)
+          .attr("width", (d) => x(d.count));
+
+        // Animate count
+        groups
+          .filter((g, j) => i === j)
+          .select(".count")
+          .transition()
+          .delay(i * 1800 + 600)
+          .duration(500)
+          .attr("opacity", 1);
+
+        // Animate drop-off (except first stage)
+        groups
+          .filter((g, j) => i === j)
+          .select(".dropoff")
+          .transition()
+          .delay(i * 1800 + 800)
+          .duration(500)
+          .attr("opacity", (d) => (d.stage === "Applied" ? 0 : 1));
+
+        // Narration update
+        setTimeout(() => {
+          narration.style.opacity = 0;
+          setTimeout(() => {
+            narration.text(messages[i]);
+            narration.style.opacity = 1;
+          }, 200);
+        }, i * 1800 + 400);
+      });
+
+      // Add interactivity
+      groups.on("mouseover", function(event, d) {
+        d3.select(this).select("rect").style("filter", "brightness(1.1)");
+      }).on("mouseout", function(event, d) {
+        d3.select(this).select("rect").style("filter", "brightness(1)");
+      });
+    </script>
+  </body>
+</html>
