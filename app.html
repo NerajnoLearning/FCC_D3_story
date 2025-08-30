@@ -37,56 +37,18 @@
         </div>
         
         <div class="learning-section">
-            <h2>📊 D3.js Concepts Learned</h2>
-            
-            <div class="concept">
-                <h3>Data Binding and Selection</h3>
-                <p>
-                    The core of D3.js is its data binding mechanism. Using <code>d3.selectAll().data().enter()</code>, we bind our job funnel data to SVG elements. This creates a relationship between data points and DOM elements, allowing us to create one bar for each stage of the job process.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>Scales and Domains</h3>
-                <p>
-                    <code>d3.scaleLinear()</code> creates a linear scale that maps our data values (0 to 767) to pixel widths. The <code>.domain()</code> represents our data range while <code>.range()</code> represents the pixel space available. This ensures our bars are proportionally sized regardless of the actual numbers.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>SVG Group Elements and Transforms</h3>
-                <p>
-                    Each stage is wrapped in a <code>&lt;g&gt;</code> (group) element, positioned using <code>transform="translate(x, y)"</code>. This creates a coordinate system for each bar, making it easy to position labels, bars, and drop-off percentages relative to each stage.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>Transitions and Animation</h3>
-                <p>
-                    D3's <code>.transition()</code> method brings the data to life. By using <code>.delay()</code> and <code>.duration()</code>, we create a storytelling sequence where each bar appears progressively, making the funnel effect more dramatic and engaging.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>Dynamic Text Content</h3>
-                <p>
-                    The drop-off percentages are calculated dynamically using <code>((1 - current/previous) * 100).toFixed(1)</code>. This demonstrates how D3.js can perform calculations on-the-fly and display computed values, not just raw data.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>Conditional Styling and Classes</h3>
-                <p>
-                    The final "Offer" bar uses conditional class assignment <code>(d.stage === "Offer" ? "bar highlight" : "bar")</code> to apply different styling. This shows how D3.js can apply different visual treatments based on data properties.
-                </p>
-            </div>
-            
-            <div class="concept">
-                <h3>Coordinated Animation Timing</h3>
-                <p>
-                    Multiple elements (bars, text, drop-offs) are animated in sequence using carefully timed <code>setTimeout()</code> calls. This creates a cohesive narrative flow where each piece of information is revealed at the optimal moment for storytelling impact.
-                </p>
-            </div>
+                        <h2>📊 Key D3.js Concepts Learned</h2>
+                        <div class="concept">
+                                <ul>
+                                    <li><strong>Data Binding and Selection:</strong> D3's <code>d3.selectAll().data().enter()</code> binds job funnel data to SVG elements, creating a direct relationship between data and DOM.</li>
+                                    <li><strong>Scales and Domains:</strong> <code>d3.scaleLinear()</code> maps data values to pixel widths, ensuring proportional bar sizes regardless of the data range.</li>
+                                    <li><strong>SVG Group Elements and Transforms:</strong> Each stage is wrapped in a <code>&lt;g&gt;</code> element and positioned with <code>transform="translate(x, y)"</code> for easy layout of bars and labels.</li>
+                                    <li><strong>Transitions and Animation:</strong> <code>.transition()</code> with <code>.delay()</code> and <code>.duration()</code> animates the bars and text, creating a dramatic, sequential storytelling effect.</li>
+                                    <li><strong>Dynamic Text Content:</strong> Drop-off percentages are calculated on-the-fly using <code>((1 - current/previous) * 100).toFixed(1)</code>, showing D3's ability to compute and display derived values.</li>
+                                    <li><strong>Conditional Styling and Classes:</strong> The final "Offer" bar uses <code>(d.stage === "Offer" ? "bar highlight" : "bar")</code> for special styling, demonstrating data-driven class assignment.</li>
+                                    <li><strong>Coordinated Animation Timing:</strong> <code>setTimeout()</code> is used to sequence the appearance of bars, text, and narration for a cohesive narrative flow.</li>
+                                </ul>
+                        </div>
         </div>
     </div>
 
